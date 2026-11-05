@@ -1,6 +1,6 @@
 [project]
 name = "agentmandates"
-version = "0.0.1"
+version = "0.1.0"
 description = "Spend mandates for AI agents: signed, verifiable limits on what an agent may pay, compatible with AP2."
 readme = "README.md"
 license = "Apache-2.0"
