@@ -4,7 +4,7 @@ Este archivo es la memoria de trabajo de Claude Code en este repo. Leelo entero 
 
 ## Qué es el proyecto (en una oración)
 
-> Nombre en clave: **agentmandates**. El nombre comercial se define antes de la semana 4 (primera publicación pública). Hasta entonces, no publicar nada en PyPI, npm ni directorios.
+> Nombre en clave: **agentmandates**. El nombre comercial se define antes de la etapa 4 (primera publicación). Hasta entonces, no publicar nada en PyPI, npm ni directorios.
 
 El producto le pone límites a la inteligencia artificial cuando gasta plata: el dueño define hasta cuánto puede pagar un agente y en qué, cada pago se verifica contra esa regla antes de ejecutarse, y todo queda registrado de forma auditable. La plata nunca pasa por nosotros: pasa por Mercado Pago, Pix o una wallet del cliente.
 
@@ -44,7 +44,7 @@ Lo que NO vive acá (vive en `gateway`, repo privado): el motor de políticas, l
 - Trabajá en ramas `feat/...` o `fix/...`. Un PR por cambio. Los PR llevan descripción en inglés y, si cambia la spec, una línea en `CHANGELOG.md`.
 - Definición de terminado: `uv run pytest` verde, `uv run mypy --strict src` sin errores, `uv run ruff check .` limpio, docs actualizadas en los tres idiomas si cambió la API pública.
 - Cuando no estés seguro de una decisión de diseño que afecte la compatibilidad con AP2, Mercado Pago o x402: no asumas, dejá un comentario `# DECISION NEEDED:` y pará.
-- No agregues funcionalidad que no esté en el plan de la semana actual (ver `docs/roadmap.md`). Menos es más.
+- No agregues funcionalidad que no esté en la etapa actual del roadmap (ver `docs/roadmap.md`). Menos es más.
 
 ## Comandos
 
@@ -58,4 +58,4 @@ uv build                     # construir el paquete
 
 ## Estado actual
 
-Semana 1 del plan de 90 días. Objetivo de la semana: esquema de mandato compatible con AP2 v0.2 (SD-JWT), firma y verificación en Python, README en tres idiomas, tests de propiedades. Ver `docs/roadmap.md`.
+Etapa 1 del roadmap. Objetivo de la etapa: esquema de mandato compatible con AP2 v0.2 (SD-JWT), firma y verificación en Python, README en tres idiomas, tests de propiedades. Ver `docs/roadmap.md`.

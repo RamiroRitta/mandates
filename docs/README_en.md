@@ -47,7 +47,7 @@ The format specification is in [`spec-mandate.md`](spec-mandate.md) (Spanish).
 
 ## Status
 
-Pre-alpha (0.1.0). Week 1 of the public 90-day plan: see [`roadmap.md`](roadmap.md).
+Pre-alpha (0.1.0). Stage 1 of the roadmap: see [`roadmap.md`](roadmap.md).
 
 ## License
 

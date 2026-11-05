@@ -1,6 +1,6 @@
-# Roadmap público (90 días, 10-15 h/semana)
+# Roadmap público
 
-| Semana | Entregable |
+| Etapa | Entregable |
 |---|---|
 | 1 | Esquema de mandato AP2 v0.2 (SD-JWT), firma/verificación Ed25519, README en es/en/pt, tests de propiedades |
 | 2 | (gateway) Modelo de datos Postgres: tenants, agents, mandates, ledger doble entrada, audit log hash-chain |

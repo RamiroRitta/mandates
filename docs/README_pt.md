@@ -47,7 +47,7 @@ A especificação do formato está em [`spec-mandate.md`](spec-mandate.md) (em e
 
 ## Status
 
-Pré-alfa (0.1.0). Semana 1 do plano público de 90 dias: veja [`roadmap.md`](roadmap.md).
+Pré-alfa (0.1.0). Etapa 1 do roadmap: veja [`roadmap.md`](roadmap.md).
 
 ## Licença
 
