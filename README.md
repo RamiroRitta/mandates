@@ -11,22 +11,43 @@ pip install agentmandates
 ```
 
 ```python
-from agentmandates import Mandate, Limits, Scope, sign, verify
+from agentmandates import Limits, Mandate, Scope, generate_keypair, sign, verify
+
+private_key, public_key = generate_keypair()
 
 mandate = Mandate(
     issuer="did:web:farmacia-central.com.ar",
     subject="agent:compras-01",
     limits=Limits(total=15_000_000, per_operation=5_000_000, currency="ARS"),  # centavos
     scope=Scope(merchants=["MP-123456"], categories=["pharmacy"]),
+    hitl_threshold=1_000_000,  # desde $10.000 se pide aprobación humana (lo aplica el gateway)
+    state="open",
     expires_in_days=30,
 )
-token = sign(mandate, private_key)
-assert verify(token, public_key, amount=120_000, merchant="MP-123456").ok
+token = sign(mandate, private_key)  # SD-JWT firmado con Ed25519
+
+result = verify(
+    token,
+    public_key,
+    amount=120_000,          # en centavos; sale del catálogo del comercio, nunca del modelo
+    merchant="MP-123456",
+    category="pharmacy",
+    remaining=15_000_000,    # saldo sin gastar, lo aporta el ledger del gateway
+)
+assert result.ok
 ```
+
+Si el pago no está autorizado, `result.ok` es `False` y `result.reason` dice por qué: `invalid_signature`, `expired`, `amount_over_per_operation`, `amount_over_remaining`, `merchant_not_allowed`, `category_not_allowed` o `malformed`.
+
+`verify` es pura: no usa red ni guarda estado. Misma entrada, misma salida (pasá `now=` para fijar el reloj).
+
+Las claves se exportan e importan en PEM con `agentmandates.mandates.private_key_to_pem`, `public_key_to_pem`, `load_private_key_pem` y `load_public_key_pem`. Nunca guardes una clave privada en el repositorio.
+
+La especificación del formato está en [`docs/spec-mandate.md`](docs/spec-mandate.md).
 
 ## Estado
 
-Pre-alpha. Semana 1 del plan público de 90 días: ver [`docs/roadmap.md`](docs/roadmap.md).
+Pre-alpha (0.1.0). Semana 1 del plan público de 90 días: ver [`docs/roadmap.md`](docs/roadmap.md).
 
 ## Licencia
 
